@@ -36,22 +36,24 @@
 <p>To download this just choose one method from the nexts:</p>
 
 <ol>
-<li> download <strong>RTVoronyjDiagram.zip</strong> from <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>;</li>
-</ol><p>2.</p>
+<li><p>download <strong>RTVoronyjDiagram.zip</strong> from <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>;</p></li>
+<li>
+<p>run</p>
 
-<pre><code>run `Gofer new
+<p><code>Gofer new
 url: 'ttp://smalltalkhub.com/mc/NataliaTymchuk/RTVoronyjDiagram/main';
 package: 'ConfigurationOfRTVoronyjDiagram';
 load.
-(#ConfigurationOfRTVoronyjDiagram asClass project version: 'development') load.`
-</code></pre>
+(#ConfigurationOfRTVoronyjDiagram asClass project version: 'development') load.</code></p>
+</li>
+<li>
+<p>download throught Monticello using the repository:</p>
 
-<ol>
-<li><p>download throught Monticello using the repository:
-<code>MCHttpRepository
+<p><code>MCHttpRepository
 location: 'http://smalltalkhub.com/mc/NataliaTymchuk/RTVoronyjDiagram/main'
 user: ''
-password: ''</code></p></li>
+password: ''</code></p>
+</li>
 </ol>
       </section>
     </div>
