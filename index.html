@@ -1,55 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Roassal Voronyj Diagram Builder2 by runadrag</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Roassal Voronyj Diagram Builder2 : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Roassal Voronyj Diagram Builder2</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Roassal Voronyj Diagram Builder2</h1>
-        <p></p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/runadrag/RTVoronyjDiagram">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Roassal Voronyj Diagram Builder2</h1>
+          <h2 id="project_tagline"></h2>
 
-        <a href="https://github.com/runadrag/RTVoronyjDiagram" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/runadrag/RTVoronyjDiagram/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/runadrag/RTVoronyjDiagram/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/runadrag/RTVoronyjDiagram/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/runadrag/RTVoronyjDiagram/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <p>Voronyj (Voronoi) diagrams are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in Roassal 2, but also suggest an approach to visualize a software with voronyj diagrams.</p>
 
 <p>To download this just choose one method from the nexts:</p>
 
 <ol>
-<li><p>download <strong>RTVoronyjDiagram.zip</strong> from <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>;</p></li>
-<li><p>run <code>Gofer new
+<li> download <strong>RTVoronyjDiagram.zip</strong> from <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>;</li>
+</ol><p>2.</p>
+
+<pre><code>run `Gofer new
 url: 'ttp://smalltalkhub.com/mc/NataliaTymchuk/RTVoronyjDiagram/main';
 package: 'ConfigurationOfRTVoronyjDiagram';
 load.
-(#ConfigurationOfRTVoronyjDiagram asClass project version: 'development') load.</code></p></li>
+(#ConfigurationOfRTVoronyjDiagram asClass project version: 'development') load.`
+</code></pre>
+
+<ol>
 <li><p>download throught Monticello using the repository:
 <code>MCHttpRepository
 location: 'http://smalltalkhub.com/mc/NataliaTymchuk/RTVoronyjDiagram/main'
@@ -57,12 +54,17 @@ user: ''
 password: ''</code></p></li>
 </ol>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/runadrag">runadrag</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Roassal Voronyj Diagram Builder2 maintained by <a href="https://github.com/runadrag">runadrag</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
     
+
   </body>
 </html>
