@@ -58,6 +58,43 @@
 </code></pre>
 </li>
 </ol>
+<p>For example running next code</p>
+<pre><code>
+  | o |
+
+o := RTVoronyjBuilder new .
+o objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10. -20 @ 60 . -30 @ 40  . 160 @ 90 . 100 @ -30 }.
+o positionBlock: #yourself.
+o build.
+
+o view
+	@ RTZoomableView;
+	yourself
+</code></pre>
+<p>will give you this image</p>
+<p>But you also can use builder properties</p>
+<pre><code>
+| o cn objects |
+
+objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10. -20 @ 60 . -30 @ 40 . 160 @ 90 . 100 @ -30 }.
+
+cn := RTNColorLinearNormalizer
+inContext: objects
+withCommand: #x
+lowColor: (Color r:0 g:0 b:1)
+highColor: (Color r:1 g:1 b:0).
+
+o := RTVoronyjBuilder new .
+o objects: objects.
+o positionBlock: #yourself.
+o color: cn.
+o build.
+
+o view
+@ RTZoomableView;
+yourself
+</code></pre>
+<p>and get this image</p>
         </section>
 
         <footer>
