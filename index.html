@@ -27,10 +27,6 @@
           <a href="http://smalltalkhub.com/#!/~NataliaTymchuk/RTVoronyjDiagram" id="download-tar-gz" class="button"><span>SmalltalkHub</span></a>
           <a href="https://github.com/runadrag/RTVoronyjDiagram/issues" id="view-on-github" class="button"><span>Issue tracker</span></a>
         </section>
-*******
-
-
-*******
         <hr>
 
         <section id="main_content">
@@ -42,7 +38,7 @@
 <li>download image from link above <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>
 </li>
 <li>
-<p>run</p>
+<p>run this code in Pharo 3 image</p>
 
 <pre><code>Gofer new
   smalltalkhubUser: 'NataliaTymchuk'
@@ -56,15 +52,13 @@
 <p>download throught Monticello using the repository:</p>
 
 <pre><code>MCSmalltalkhubRepository
-	owner: 'NataliaTymchuk'
-	project: 'RTVoronyjDiagram'
+  owner: 'NataliaTymchuk'
+  project: 'RTVoronyjDiagram'
 </code></pre>
 </li>
 </ol>
 <p>If you want simple way how to use RTVoronyjBuilder,just run next code:</p>
-<pre><code>
-  | builder |
-
+<pre><code>| builder |
  builder := RTVoronyjBuilder new .
  builder objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
              -20 @ 60 . -30 @ 40  . 160 @ 90 . 100 @ -30 }.
@@ -73,31 +67,25 @@
 </code></pre>
 <p>You will give you this image</p>
 <img src="pub-images\SimpleVD.png" alt="Simple Voronyj diagram">
-<p>But you also can use builder or Roassal properties. Let </p>
-<pre><code>
-  builder := RTVoronyjBuilder new .
-  builder objects: objects.
-  builder positionBlock:#yourself.
-</code></pre>
-<p>Then you can add:</p>
+<p>But you also can use builder or Roassal properties. </p>
 <ul>
     <li>site color:
       <pre><code>
-      builder sites shape
-              color: Color yellow.
+builder sites shape
+        color: Color yellow.
       </code></pre>
     </li>
 
     <li>site shape:
       <pre><code>
-        builder sites shape rectangle.
+builder sites shape rectangle.
       </code></pre>
     </li>
 
     <li>site size:
       <pre><code>
-        builder sites shape
-	              size: 30.
+builder sites shape
+	      size: 30.
       </code></pre>
     </li>
 
@@ -105,34 +93,32 @@
       <ol>
         <li>popup text:
           <pre><code>
-            builder sites interaction
-	                  popupText: [ :obj | 'I am', obj asString ].
+builder sites interaction
+	      popupText: [ :obj | 'I am', obj asString ].
           </code></pre>
         </li>
         <li>highlight color
           <pre><code>
-            builder sites interaction
-	                  highlightColored: Color red.
-
+builder sites interaction
+	      highlightColored: Color red.
           </code></pre>
         </li>
       </ol>
       <p>Notice that for building sites we have another builder RTSiteBuilder, while cell properties is implemented in RTVoronyjBuilder.</p>
     <li>cell color:
       <pre><code>
-        builder color: Color blue.
+builder color: Color blue.
       </code></pre>
       <ol>
         <li>cell normalized color:
             <p>As usual in Roassal you can use normalization of color, for example</p>
             <pre><code>
-              cn := RTNColorLinearNormalizer
-	                  inContext: objects
-	                  withCommand: #x
-	                  lowColor: (Color r:0 g:0 b:1)
-	                  highColor: (Color r:1 g:1 b:0).
-
-              builder color: cn.
+cn := RTNColorLinearNormalizer
+	    inContext: objects
+	    withCommand: #x
+	    lowColor: (Color r:0 g:0 b:1)
+	    highColor: (Color r:1 g:1 b:0).
+builder color: cn.
       </code></pre>
     </li>
   </li>
