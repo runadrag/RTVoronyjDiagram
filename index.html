@@ -63,15 +63,13 @@
   | o |
 
 o := RTVoronyjBuilder new .
-o objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10. -20 @ 60 . -30 @ 40  . 160 @ 90 . 100 @ -30 }.
+o objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
+             -20 @ 60 . -30 @ 40  . 160 @ 90 . 100 @ -30 }.
 o positionBlock: #yourself.
-o build.
-
-o view
-	@ RTZoomableView;
-	yourself
+o open.
 </code></pre>
 <p>You will give you this image</p>
+<img src="SimpleVD.png" alt="..." class="img-thumbnail" id='SimpleVD'>
 <p>But you also can use builder properties. Let </p>
 <pre><code>
   o := RTVoronyjBuilder new .
@@ -138,7 +136,8 @@ o view
 <pre><code>
 | o cn objects |
 
-objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10. -20 @ 60 . -30 @ 40 . 160 @ 90 . 100 @ -30 }.
+objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
+            -20 @ 60 . -30 @ 40 . 160 @ 90 . 100 @ -30 }.
 
 cn := RTNColorLinearNormalizer
 inContext: objects
@@ -157,6 +156,7 @@ o view
 yourself
 </code></pre>
 <p>you will get this image</p>
+<img src="NiceVD.png" alt="..." class="img-thumbnail" id='NiceVD'>
         </section>
 
         <footer>
