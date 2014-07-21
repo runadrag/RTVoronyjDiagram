@@ -31,7 +31,7 @@
         <hr>
 
         <section id="main_content">
-          <p>Voronyj (Voronoi) diagrams (посилання) are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in Roassal 2(посилання), but also suggest an approach to visualize a software with voronyj diagrams.</p>
+          <p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with voronyj diagrams.</p>
 
 <p>To download this just choose one method from the nexts:</p>
 
@@ -60,41 +60,41 @@
 </ol>
 <p>If you want simple way how to use RTVoronyjBuilder,just run next code:</p>
 <pre><code>
-  | o |
+  | builder |
 
-o := RTVoronyjBuilder new .
-o objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
+ builder := RTVoronyjBuilder new .
+ builder objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
              -20 @ 60 . -30 @ 40  . 160 @ 90 . 100 @ -30 }.
-o positionBlock: #yourself.
-o open.
+ builder positionBlock: #yourself.
+ builder open.
 </code></pre>
 <p>You will give you this image</p>
 <img src="SimpleVD.png" alt="..." class="img-thumbnail" id='SimpleVD'>
 <p>But you also can use builder properties. Let </p>
 <pre><code>
-  o := RTVoronyjBuilder new .
-  o objects: objects.
-  o positionBlock:#yourself.
+  builder := RTVoronyjBuilder new .
+  builder objects: objects.
+  builder positionBlock:#yourself.
 </code></pre>
 <p>Then you can add:</p>
 <ul>
     <li>site color:
       <pre><code>
-      o sites shape
-        color: Color yellow.
+      builder sites shape
+              color: Color yellow.
       </code></pre>
     </li>
 
     <li>site shape:
       <pre><code>
-        o sites shape rectangle.
+        builder sites shape rectangle.
       </code></pre>
     </li>
 
     <li>site size:
       <pre><code>
-        o sites shape
-	        size: 30.
+        builder sites shape
+	              size: 30.
       </code></pre>
     </li>
 
@@ -102,14 +102,14 @@ o open.
       <ol>
         <li>popup text:
           <pre><code>
-            o sites interaction
-	                   popupText: [ :obj | 'I am', obj asString ].
+            builder sites interaction
+	                  popupText: [ :obj | 'I am', obj asString ].
           </code></pre>
         </li>
         <li>highlight color
           <pre><code>
-            o sites interaction
-	                   highlightColored: Color red.
+            builder sites interaction
+	                  highlightColored: Color red.
 
           </code></pre>
         </li>
@@ -117,24 +117,26 @@ o open.
 
     <li>cell color:
       <pre><code>
-        o color: Color blue.
+        builder color: Color blue.
       </code></pre>
-    </li>
-    <li>cell normalized color:
-      <pre><code>
-        cn := RTNColorLinearNormalizer
-	            inContext: objects
-	            withCommand: #x
-	            lowColor: (Color r:0 g:0 b:1)
-	            highColor: (Color r:1 g:1 b:0).
+      <ol>
+        <li>cell normalized color:
+            <p>As usual in Roassal you can use normalization of color, for example</p>
+            <pre><code>
+              cn := RTNColorLinearNormalizer
+	                  inContext: objects
+	                  withCommand: #x
+	                  lowColor: (Color r:0 g:0 b:1)
+	                  highColor: (Color r:1 g:1 b:0).
 
-        o color: cn.
+              builder color: cn.
       </code></pre>
     </li>
+  </li>
 </ul>
 <p>Now using the code:</p>
 <pre><code>
-| o cn objects |
+| builder cn objects |
 
 objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
             -20 @ 60 . -30 @ 40 . 160 @ 90 . 100 @ -30 }.
@@ -145,15 +147,20 @@ withCommand: #x
 lowColor: (Color r:0 g:0 b:1)
 highColor: (Color r:1 g:1 b:0).
 
-o := RTVoronyjBuilder new .
-o objects: objects.
-o positionBlock: #yourself.
-o color: cn.
-o build.
-
-o view
-@ RTZoomableView;
-yourself
+ builder := RTVoronyjBuilder new .
+ builder objects: objects.
+ builder positionBlock: #yourself.
+ builder color: cn.
+ builder sites shape rectangle;
+         color: Color green;
+		     size: 10.
+ builder sites interaction
+	       popupText: [ :obj | 'I am', obj asString ];
+         highlightColored: Color red.
+ builder build.
+ builder view
+ @ RTZoomableView;
+ open
 </code></pre>
 <p>you will get this image</p>
 <img src="NiceVD.png" alt="..." class="img-thumbnail" id='NiceVD'>
