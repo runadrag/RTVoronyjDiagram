@@ -160,40 +160,34 @@ highColor: (Color r:1 g:1 b:0).
 <p> You may know about great project on Roassal called MapBuiler. You can build your map and than use RTVoronyjBuilder to draw Voronyj diagrams.
 This way you can see for example which citi is closest to you or if you want to find small citi which is the closest for job.
 You just need to add next lines of code:  </p>
-<code><pre>
-  | b v |
-	b := RTMapBuilder new.
-
-	b countries: RTMapBuilder southAmerica.
-	b cities: #( " (name, population) pairs "
-		#('Santiago')
-		#('Bogota')
-		#('Buenos Aires')
-		#('Brasilia')
-		#('Montevideo')
-		#('Lima')
-		#('La Paz')
-		#('Quito')
-		#('Sao Paulo')
-		#('Caracas'))
-		named: [ :c | c at: 1 ].
-
-	b cities
-		withPopup: [ :c | (c at: 1), ': ', (((c at: 2) / 1000000 roundTo: 0.01) asString), 'M'].
+<code><pre>| b v |
+b := RTMapBuilder new.
+b countries: RTMapBuilder southAmerica.
+b cities: #( " (name, population) pairs "
+	#('Santiago')
+	#('Bogota')
+	#('Buenos Aires')
+	#('Brasilia')
+	#('Montevideo')
+	#('Lima')
+	#('La Paz')
+	#('Quito')
+	#('Sao Paulo')
+	#('Caracas'))
+	named: [ :c | c at: 1 ].
 
 b color: Color veryVeryLightGray.
-	b scale: 3.
-	b withPopup.
+b scale: 3.
 
-	v := RTView new.
-	b renderIn: v.
+v := RTView new.
+b renderIn: v.
 
-	RTVoronyjBuilder new
-		objects: (v elements select:[:e | e shape class = RTEllipse ]);
-		positionBlock: #position;
-		doNotRenderSites;
-		color: (Color black alpha: 0.05);
-		renderIn: v.
+RTVoronyjBuilder new
+	objects: (v elements select:[:e | e shape class = RTEllipse ]);
+	positionBlock: #position;
+	doNotRenderSites;
+	color: (Color black alpha: 0.05);
+	renderIn: v.
 v
 </code></pre>
 <p>It looks </p>
