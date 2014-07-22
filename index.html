@@ -59,33 +59,50 @@
 </ol>
 <p>If you want simple way how to use RTVoronyjBuilder,just run next code:</p>
 <pre><code>| builder |
- builder := RTVoronyjBuilder new .
- builder objects: {  10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
-             -20 @ 60 . -30 @ 40  . 160 @ 90 . 100 @ -30 }.
- builder positionBlock: #yourself.
- builder open.
+builder := RTVoronyjBuilder new .
+builder objects: {
+   10 @ 40 .  40 @ 10 .  10 @ -20 . -20 @ 10.
+  -20 @ 60 . -30 @ 40 . 160 @ 90  . 100 @ -30 }.
+builder positionBlock: #yourself.
+builder open.
 </code></pre>
 <p>You will give you this image</p>
 <img src="pub-images\SimpleVD.png" alt="Simple Voronyj diagram">
-<p>But you also can use builder or Roassal properties. </p>
+<p>It's nice but you can do it more informative and presentable.</p>
+
+<p>First of all you can add the color of the cells.</p>
 <ul>
+<li>cell color:
+  <pre><code>
+builder color: Color blue.
+  </code></pre>
+  <ol>
+  <p>As usual in Roassal you can use normalization of color, for example</p>
+    <li>cell normalized color:
+        <pre><code>
+cn := RTNColorLinearNormalizer
+  inContext: objects
+  withCommand: #x
+  lowColor: (Color r:0 g:0 b:1)
+  highColor: (Color r:1 g:1 b:0).
+builder color: cn.
+  </code></pre>
+</li>
+<p>Now let's give more properties for the sites. The sites are built by RTSiteBuilder and can be eccessed by the message<code> site </code>.
+  It uses ShapeBuilder, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
     <li>site color:
-      <pre><code>
-builder sites shape
-        color: Color yellow.
-      </code></pre>
+      <pre><code>builder sites shape
+  color: Color yellow.
+</code></pre>
     </li>
 
     <li>site shape:
-      <pre><code>
-builder sites shape rectangle.
-      </code></pre>
+      <pre><code>builder sites shape rectangle.</code></pre>
     </li>
 
     <li>site size:
-      <pre><code>
-builder sites shape
-	      size: 30.
+      <pre><code>builder sites shape
+  size: 30.
       </code></pre>
     </li>
 
@@ -104,23 +121,8 @@ builder sites interaction
           </code></pre>
         </li>
       </ol>
-      <p>Notice that for building sites we have another builder RTSiteBuilder, while cell properties is implemented in RTVoronyjBuilder.</p>
-    <li>cell color:
-      <pre><code>
-builder color: Color blue.
-      </code></pre>
-      <ol>
-        <li>cell normalized color:
-            <p>As usual in Roassal you can use normalization of color, for example</p>
-            <pre><code>
-cn := RTNColorLinearNormalizer
-	    inContext: objects
-	    withCommand: #x
-	    lowColor: (Color r:0 g:0 b:1)
-	    highColor: (Color r:1 g:1 b:0).
-builder color: cn.
-      </code></pre>
-    </li>
+      <p>Notice that for building sites we have another builder RTSiteBuilder, while cell properties is implemented in RTVoronyjBuilder. </p>
+
   </li>
 </ul>
 <p>Now using the code:</p>
@@ -153,6 +155,49 @@ highColor: (Color r:1 g:1 b:0).
 </code></pre>
 <p>you will get this image</p>
 <img src="pub-images/NiceVD.png" alt="Nice Voronyj diagram with properties above">
+
+<p> Let's talk where you can use it. </p>
+<p> You may know about great project on Roassal called MapBuiler. You can build your map and than use RTVoronyjBuilder to draw Voronyj diagrams.
+This way you can see for example which citi is closest to you or if you want to find small citi which is the closest for job.
+You just need to add next lines of code:  </p>
+<code><pre>
+  | b v |
+	b := RTMapBuilder new.
+
+	b countries: RTMapBuilder southAmerica.
+	b cities: #( " (name, population) pairs "
+		#('Santiago')
+		#('Bogota')
+		#('Buenos Aires')
+		#('Brasilia')
+		#('Montevideo')
+		#('Lima')
+		#('La Paz')
+		#('Quito')
+		#('Sao Paulo')
+		#('Caracas'))
+		named: [ :c | c at: 1 ].
+
+	b cities
+		withPopup: [ :c | (c at: 1), ': ', (((c at: 2) / 1000000 roundTo: 0.01) asString), 'M'].
+
+b color: Color veryVeryLightGray.
+	b scale: 3.
+	b withPopup.
+
+	v := RTView new.
+	b renderIn: v.
+
+	RTVoronyjBuilder new
+		objects: (v elements select:[:e | e shape class = RTEllipse ]);
+		positionBlock: #position;
+		doNotRenderSites;
+		color: (Color black alpha: 0.05);
+		renderIn: v.
+v
+</code></pre>
+<p>It looks </p>
+<img src="pub-images/MapVD.png" alt="Voronyj diagram on map">
         </section>
 
         <footer>
