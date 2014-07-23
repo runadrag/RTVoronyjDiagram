@@ -84,6 +84,12 @@ header h2 {
   line-height: 1.3;
 }
 
+header h3 {
+	color: gray;
+	text-align: center;
+	font-style: italic;
+}
+
 #container {
   background: transparent url(../images/highlight-bg.jpg) 50% 0 no-repeat;
   min-height: 595px;
@@ -322,6 +328,10 @@ footer a {
 }
 footer a:hover {
   color: #444;
+}
+
+#main_content {
+	text-align: justify;
 }
 
 /* MISC */
