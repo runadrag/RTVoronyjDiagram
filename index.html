@@ -20,7 +20,7 @@
 
         <header>
           <h1>Voronyj Diagram in Roassal</h1>
-          <h3>The best implementation ever</h2>
+          <h3>The best implementation ever</h3>
         </header>
 
         <section id="downloads" class="clearfix">
@@ -65,7 +65,7 @@
 <h2>How to use</h2>
 
 <p>A simple diagram needs objects and block, which give the position to the objects. For example you can do:</p>
-<p> If you want a simple way how to use RTVoronyjBuilder, just run next code:</p>
+<p> If you want a simple way how to use RTVoronyjBuilder, just run next code:
 <pre><code>| builder |
 builder := RTVoronyjBuilder new .
 builder objects: {
@@ -74,50 +74,45 @@ builder objects: {
 builder positionBlock: #yourself.
 builder open.
 </code></pre>
-<p>You will give you this image</p>
-<img src="pub-images\SimpleVD.png" alt="Simple Voronyj diagram">
+You will get this image
+<img src="pub-images/SimpleVD.png" alt="Simple Voronyj diagram">
+</p>
 
 <h3>Builder properties</h3>
 <p>This builder has a lot of opportunity to give properties for objects.</p>
 <p>It's nice but you can do it more informative and presentable.</p>
 
 <p>First of all you can add:</p>
-<ul>
-  <li>frame:</li>
-  <p>The builder uses the frame, which bounded drived cells. You can set the frame. (just in case) We have minFrame which contains all points. For example </p>
+<h4>frame:</h4>
+  <p>The builder uses the frame, which is bounding cells. You can set the frame. (just in case) We have minFrame which contains all points. For example </p>
   <p>We want to have the frame bounding all points.We have frameBlock for bounding all objects.</p>
   <pre><code>frameBlock: [view elements encompassingRectangle expandBy: 10 ]</code></pre>
-<li>cell color:
+<h4>cell color:</h4>
   <pre><code>builder color: Color blue.</code></pre>
-  <ol>
   <p>As usual in Roassal you can use normalization of color, for example</p>
-    <li>cell normalized color:
+    <h4>cell normalized color:</h4>
     <pre><code>cn := RTNColorLinearNormalizer
   inContext: objects
   withCommand: #x
   lowColor: (Color r:0 g:0 b:1)
   highColor: (Color r:1 g:1 b:0).
 builder color: cn.</code></pre>
-</ol>
-</li>
+
 <h3>Site properties</h3>
 <p>Now let's give more properties for the sites. The sites are built by RTSiteBuilder and can be eccessed by the message <code>site</code>.
   It uses ShapeBuilder, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
-    <li>site color:
+    <h4>site color:</h4>
       <pre><code>builder sites shape
   color: Color yellow.</code></pre>
-    </li>
 
-    <li>site shape:
+<h4>site shape:</h4>
       <pre><code>builder sites shape rectangle.</code></pre>
-    </li>
 
-    <li>site size:
+    <h4>site size:</h4>
       <pre><code>builder sites shape
   size: 30.</code></pre>
-    </li>
 
-    <li>site interaction:
+<h4>site interaction:</h4>
       <ol>
         <li>popup text:
           <pre><code>builder sites interaction
@@ -129,7 +124,6 @@ builder color: cn.</code></pre>
         </li>
       </ol>
       </li>
-</ul>
 <p>Now using the code:</p>
 <pre><code>| builder cn objects |
 
