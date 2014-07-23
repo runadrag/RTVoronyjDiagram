@@ -33,7 +33,7 @@
         <section id="main_content">
 
 <h2>Quick introduction</h2>
-<p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with voronyj diagrams.</p>
+<p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with Voronyj diagrams.</p>
 
 <h2>How to download</h2>
 <p>To download this just choose one method from the nexts:</p>
@@ -64,8 +64,7 @@
 
 <h2>How to use</h2>
 
-<p>A simple diagram needs objects and block, which give the position to the objects. For example you can do:</p>
-<p> If you want a simple way how to use RTVoronyjBuilder, just run next code:
+<p>A simple diagram needs objects and block, which gives the position of the objects. For example you can do:</p>
 <pre><code>| builder |
 builder := RTVoronyjBuilder new .
 builder objects: {
@@ -74,23 +73,19 @@ builder objects: {
 builder positionBlock: #yourself.
 builder open.
 </code></pre>
-You will get this image
-<img src="pub-images/SimpleVD.png" alt="Simple Voronyj diagram">
-</p>
+<p>You will get this image
+<img src="pub-images/SimpleVD.png" alt="Simple Voronyj diagram"></p>
+
+<h2>Customizing diagram</h2>
+<p>When we are looking on previous image the question the question can turned up whether you can make the diagram more informative and interesting? Actually - yes. This builder provides a lot of properties to castomize the diagram.</p>
 
 <h3>Builder properties</h3>
-<p>This builder has a lot of opportunity to give properties for objects.</p>
-<p>It's nice but you can do it more informative and presentable.</p>
 
-<p>First of all you can add:</p>
-<h4>frame:</h4>
-  <p>The builder uses the frame, which is bounding cells. You can set the frame. (just in case) We have minFrame which contains all points. For example </p>
-  <p>We want to have the frame bounding all points.We have frameBlock for bounding all objects.</p>
-  <pre><code>frameBlock: [view elements encompassingRectangle expandBy: 10 ]</code></pre>
-<h4>cell color:</h4>
+<p>First of all you can work with cells:</p>
+<h4>Cell Color</h4>
   <pre><code>builder color: Color blue.</code></pre>
-  <p>As usual in Roassal you can use normalization of color, for example</p>
-    <h4>cell normalized color:</h4>
+  <p>The builder allows you to do even more with color. As usual in Roassal you can use normalization of color, for example</p>
+<h4>Cell Normalized Color</h4>
     <pre><code>cn := RTNColorLinearNormalizer
   inContext: objects
   withCommand: #x
@@ -98,33 +93,40 @@ You will get this image
   highColor: (Color r:1 g:1 b:0).
 builder color: cn.</code></pre>
 
+<h4>Frame</h4>
+  <p>The builder uses the frame, which is bounding cells. You can set the frame. For example </p>
+  <pre><code>frameBlock: [view elements encompassingRectangle expandBy: 10 ]</code></pre>
+  <p>Don't worry if it happens than your frame does not contain all points or object, it will be merged with   <code>minFrame</code>, which contains all points.</p>
+
+<p>Now let's find out the properties of the sites.</p>
+
 <h3>Site properties</h3>
-<p>Now let's give more properties for the sites. The sites are built by RTSiteBuilder and can be eccessed by the message <code>site</code>.
-  It uses ShapeBuilder, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
-    <h4>site color:</h4>
+<p>The sites are built by <code>RTSiteBuilder</code> and can be eccessed by the message <code>site</code>.
+  It uses <code>ShapeBuilder</code>, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
+<h4>Color</h4>
       <pre><code>builder sites shape
   color: Color yellow.</code></pre>
 
-<h4>site shape:</h4>
+<h4>Shape</h4>
       <pre><code>builder sites shape rectangle.</code></pre>
 
-    <h4>site size:</h4>
+<h4>Size</h4>
       <pre><code>builder sites shape
   size: 30.</code></pre>
 
-<h4>site interaction:</h4>
+<h4>Interaction</h4>
       <ol>
-        <li>popup text:
+        <li>Popup text:
           <pre><code>builder sites interaction
 	      popupText: [ :obj | 'I am', obj asString ].</code></pre>
         </li>
-        <li>highlight color
+        <li>Highlight color
           <pre><code>builder sites interaction
 	      highlightColored: Color red.</code></pre>
         </li>
       </ol>
       </li>
-<p>Now using the code:</p>
+<p>Now let's see what we can get with using previous properties. Here is the code</p>
 <pre><code>| builder cn objects |
 
 objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
@@ -150,11 +152,15 @@ builder build.
 builder view
  @ RTZoomableView;
  open</code></pre>
-<p>you will get this image</p>
+<p> which will give you this result</p>
 <img src="pub-images/NiceVD.png" alt="Nice Voronyj diagram with properties above">
+<p> Let's talk where you can use it. </p>
 
 <h2>Examples</h2>
-<p> Let's talk where you can use it. </p>
+
+<p>You can use it for building diagram with some point, as previous or you can use it with the other project.</p>
+
+<h3>Diagram on Map</h3>
 <p> You may know about great project on Roassal called MapBuiler. You can build your map and then use RTVoronyjBuilder to draw Voronyj diagrams.
 This way you can see for example which city is closest to you or if you want to find small city which is the closest for job.
 You just need to add a few lines of code:</p>
@@ -188,10 +194,13 @@ RTVoronyjBuilder new
 view</code></pre>
 <p>It looks </p>
 <img src="pub-images/VDMap.png" alt="Voronyj diagram on map">
+
+<h3>Diagram ????</h3>
+<p> Also you can build the diagram to visualize a software. Just add the package to the <code>Moose Panel</code> (add relationBlock!!!!!!) and see what you will get. </p>
         </section>
 
         <footer>
-          Voronyj Diagram in Roassal is maintained by <a href="https://github.com/runadrag">runadrag</a><br>
+          Voronyj diagram in Roassal is maintained by <a href="https://github.com/runadrag">runadrag</a><br>
           This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
