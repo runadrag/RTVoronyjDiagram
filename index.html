@@ -19,7 +19,7 @@
 
         <header>
           <h1>Voronyj Diagram in Roassal</h1>
-          <h2>roassal, roassal2, voronoi, voronyj, visualisation, pharo</h2>
+          <h3 style ="text-align:center"><em>roassal, roassal2, voronoi, voronyj, visualisation, pharo</em></h2>
         </header>
 
         <section id="downloads" class="clearfix">
@@ -30,8 +30,11 @@
         <hr>
 
         <section id="main_content">
-          <p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with voronyj diagrams.</p>
 
+<h2>Quick introduce</h2>
+<p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with voronyj diagrams.</p>
+
+<h2>How to download</h2>
 <p>To download this just choose one method from the nexts:</p>
 
 <ol>
@@ -57,7 +60,9 @@
 </code></pre>
 </li>
 </ol>
-<p>If you want simple way how to use RTVoronyjBuilder,just run next code:</p>
+
+<h2>How to use</h2>
+<p>If you want simple way how to use RTVoronyjBuilder, just run next code:</p>
 <pre><code>| builder |
 builder := RTVoronyjBuilder new .
 builder objects: {
@@ -73,22 +78,20 @@ builder open.
 <p>First of all you can add the color of the cells.</p>
 <ul>
 <li>cell color:
-  <pre><code>
-builder color: Color blue.
-  </code></pre>
+  <pre><code>builder color: Color blue.</code></pre>
   <ol>
   <p>As usual in Roassal you can use normalization of color, for example</p>
     <li>cell normalized color:
-        <pre><code>
-cn := RTNColorLinearNormalizer
+    <pre><code>cn := RTNColorLinearNormalizer
   inContext: objects
   withCommand: #x
   lowColor: (Color r:0 g:0 b:1)
   highColor: (Color r:1 g:1 b:0).
 builder color: cn.
   </code></pre>
+</ol>
 </li>
-<p>Now let's give more properties for the sites. The sites are built by RTSiteBuilder and can be eccessed by the message<code> site </code>.
+<p>Now let's give more properties for the sites. The sites are built by RTSiteBuilder and can be eccessed by the message <code>site</code>.
   It uses ShapeBuilder, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
     <li>site color:
       <pre><code>builder sites shape
@@ -109,25 +112,20 @@ builder color: cn.
     <li>site interaction:
       <ol>
         <li>popup text:
-          <pre><code>
-builder sites interaction
+          <pre><code>builder sites interaction
 	      popupText: [ :obj | 'I am', obj asString ].
           </code></pre>
         </li>
         <li>highlight color
-          <pre><code>
-builder sites interaction
+          <pre><code>builder sites interaction
 	      highlightColored: Color red.
           </code></pre>
         </li>
       </ol>
-      <p>Notice that for building sites we have another builder RTSiteBuilder, while cell properties is implemented in RTVoronyjBuilder. </p>
-
-  </li>
+      </li>
 </ul>
 <p>Now using the code:</p>
-<pre><code>
-| builder cn objects |
+<pre><code>| builder cn objects |
 
 objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
             -20 @ 60 . -30 @ 40 . 160 @ 90 . 100 @ -30 }.
@@ -156,28 +154,35 @@ highColor: (Color r:1 g:1 b:0).
 <p>you will get this image</p>
 <img src="pub-images/NiceVD.png" alt="Nice Voronyj diagram with properties above">
 
+<h2>Examples</h2>
 <p> Let's talk where you can use it. </p>
 <p> You may know about great project on Roassal called MapBuiler. You can build your map and than use RTVoronyjBuilder to draw Voronyj diagrams.
-This way you can see for example which citi is closest to you or if you want to find small citi which is the closest for job.
-You just need to add next lines of code:  </p>
-<code><pre>| b v |
+This way you can see for example which city is closest to you or if you want to find small city which is the closest for job.
+You just need to add a few lines of code:</p>
+<pre><code>| b v |
 b := RTMapBuilder new.
 b countries: RTMapBuilder southAmerica.
-b cities: #( " (name, population) pairs "
-	#('Santiago')
-	#('Bogota')
-	#('Buenos Aires')
-	#('Brasilia')
-	#('Montevideo')
-	#('Lima')
-	#('La Paz')
-	#('Quito')
-	#('Sao Paulo')
-	#('Caracas'))
+b cities: #(
+ 'Santiago'
+ 'Bogota'
+ 'Buenos Aires'
+ 'Brasilia'
+ 'Montevideo'
+ 'Lima'
+ 'La Paz'
+ 'Quito'
+ 'Sao Paulo'
+ 'Caracas').
+
+b color: Color veryVeryLightGray.
+	b scale: 3.
+	b withPopup.
 	named: [ :c | c at: 1 ].
 
 b color: Color veryVeryLightGray.
 b scale: 3.
+
+"next code is used to add Voronyj Diagram"
 
 v := RTView new.
 b renderIn: v.
@@ -188,8 +193,7 @@ RTVoronyjBuilder new
 	doNotRenderSites;
 	color: (Color black alpha: 0.05);
 	renderIn: v.
-v
-</code></pre>
+v</code></pre>
 <p>It looks </p>
 <img src="pub-images/VDMap.png" alt="Voronyj diagram on map">
         </section>
