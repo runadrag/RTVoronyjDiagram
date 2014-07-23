@@ -161,7 +161,7 @@ builder view
 
 <h2>Examples</h2>
 <p> Let's talk where you can use it. </p>
-<p> You may know about great project on Roassal called MapBuiler. You can build your map and than use RTVoronyjBuilder to draw Voronyj diagrams.
+<p> You may know about great project on Roassal called MapBuiler. You can build your map and then use RTVoronyjBuilder to draw Voronyj diagrams.
 This way you can see for example which city is closest to you or if you want to find small city which is the closest for job.
 You just need to add a few lines of code:</p>
 <pre><code>| builder view |
@@ -185,7 +185,8 @@ view := RTView new.
 builder renderIn: view.
 
 RTVoronyjBuilder new
-	objects: (view elements select:[:e | e shape class = RTEllipse ]);
+	objects: (view elements select:[:e
+                    | e shape class = RTEllipse ]);
 	positionBlock: #position;
 	doNotRenderSites;
 	color: (Color black alpha: 0.05);
