@@ -57,14 +57,14 @@
 <!-- <a name="1"></a> -->
 <p><h2>Quick introduction</h2></p>
 
-<p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with Voronyj diagrams.</p>
+<p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> have been used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with Voronyj diagrams.</p>
 
 
 <h2>How to Download</h2>
-<p>To download this just choose one method from the nexts:</p>
+<p>To download this just choose one method from the next options:</p>
 
 <ol>
-<li>download image from link above <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>
+<li>download the image from the link above <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>
 </li>
 <li>
 <p>run this code in Pharo 3 image</p>
@@ -78,7 +78,7 @@
 </code></pre>
 </li>
 <li>
-<p>download throught Monticello using the repository:</p>
+<p>download thought Monticello using the repository:</p>
 
 <pre><code>MCSmalltalkhubRepository
   owner: 'NataliaTymchuk'
@@ -90,7 +90,7 @@
 <p><a name="2"></a></p>
 <h2>How to Use</h2>
 
-<p>A simple diagram needs objects and block, which gives the position of the objects. For example you can do:</p>
+<p>A simple diagram needs the objects and block, which gives the position of the objects. For example you can do:</p>
 <pre><code>| builder |
 builder := RTVoronyjBuilder new .
 builder objects: {
@@ -103,15 +103,15 @@ builder open.
 <img src="pub-images/SimpleVD.png" alt="Simple Voronyj diagram"></p>
 
 <p><a name="3"></a></p>
-<h2>Customising Diagram</h2>
-<p>When we are looking on previous image the question the question can turned up whether you can make the diagram more informative and interesting? Actually - yes. This builder provides a lot of properties to castomize the diagram.</p>
+<h2>Customizing Diagram</h2>
+<p>When we are looking on the previous image the question the question can turned up whether you can make the diagram more informative and interesting? Actually - yes. This builder provides a lot of properties to customize the diagram.</p>
 
 <h3>Builder properties</h3>
 
-<p>First of all you can work with cells:</p>
+<p>First of all you can work with the cells:</p>
 <h4>Cell Color</h4>
   <pre><code>builder color: Color blue.</code></pre>
-  <p>The builder allows you to do even more with color. As usual in Roassal you can use normalization of color, for example</p>
+  <p>The builder allows you to do even more with the color. As usual in Roassal you can use normalization of the color, for example</p>
 <h4>Cell Normalized Color</h4>
     <pre><code>cn := RTNColorLinearNormalizer
   inContext: objects
@@ -121,15 +121,15 @@ builder open.
 builder color: cn.</code></pre>
 
 <h4>Frame</h4>
-  <p>The builder uses the frame, which is bounding cells. You can set the frame. For example </p>
+  <p>The builder uses the frame, which is bounding the cells. You can set the frame. For example </p>
   <pre><code>frameBlock: [ 0 @ 0 corner: 500 @ 500 ]</code></pre>
   <p>or</p>
   <pre><code>frameBlock: [view elements encompassingRectangle expandBy: 10 ]</code></pre>
-  <p>Don't worry if it happens than your frame does not contain all points or object, it will be merged with   <code>minFrame</code>.</p>
+  <p>Don't worry if it happens than your frame does not contain all the  points or object, it will be merged with   <code>minFrame</code>.</p>
 
 
 <h3>Site properties</h3>
-<p>The sites are built by <code>RTSiteBuilder</code> and can be eccessed by the message <code>site</code>.
+<p>The sites are built by <code>RTSiteBuilder</code> and can be accessed by the message <code>site</code>.
   It uses <code>ShapeBuilder</code>, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
 <h4>Color</h4>
       <pre><code>builder sites shape
@@ -187,7 +187,7 @@ builder view
 <p><a name="4"></a></p>
 <h2>Work with Frameworks</h2>
 
-<p>You can use it for building diagram with some point, as previous or you can use it with the other project.</p>
+<p>You can use it for building the diagram with some point, as previous or you can use it with the other project.</p>
 
 <h3>Diagram on Map</h3>
 <p> You may know about great project on Roassal called MapBuiler. You can build your map and then use RTVoronyjBuilder to draw Voronyj diagrams.
@@ -224,13 +224,11 @@ view</code></pre>
 <p>It looks </p>
 <img src="pub-images/VDMap.png" alt="Voronyj diagram on map">
 
-<h3>Diagram ????</h3>
-<p>Very often our objects didn't have coordinates. Like an experiment I'm working on visualisation the classes.  </p>
-<p>You can build the diagram to visualize a software. Just add the package to the <code>Moose Panel</code> and see what you will get. </p>
+<h3>Future work</h3>
+<p> I'm researching if it possible to analyze the software using Voronyj diagram. Like a lot of other things software artifacts don't have physical coordinates, however until now I already get such prototype: </p>
 <img src="pub-images/ManyPoints.png" alt="Voronyj diagram with many entities">
-<p> Some times you can get less point then you have classes. It's deppens on if class uses methods from other class - if uses then this classes should be closer. In this case if you press on some point you get new image. </p>
-<img src="pub-images/60Entities.png" alt="Voronyj diagram 3 entities">
-<p>I will glad if you can try it and write some comments.</p>        </section>
+
+        </section>
 
         <footer>
           Voronyj diagram in Roassal is maintained by <a href="https://github.com/runadrag">runadrag</a><br>
