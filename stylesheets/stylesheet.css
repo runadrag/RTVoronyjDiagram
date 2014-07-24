@@ -68,24 +68,11 @@ header {
   padding-bottom: 25px;
 }
 
-
-
-
-
-
-
-
 #navWrap {
-    height: 30px;
+    height: 40px;
 }
 #nav {
-	padding: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
+	padding: 5px 0px;
 }
 
 #nav.fixed {
@@ -100,33 +87,36 @@ header {
 }
 
 #nav ul {
-   margin: 0;
-padding: 0;
+  margin: 0;
+	padding: 0;
+	width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  margin: auto;
 }
+
 #nav li {
-    float: left;
-    padding: 3px 8px;
-    background-color: #FFF;
-    margin: 0 10px 0 0;
-    color: #F00;
-    list-style-type: none;
+  float: left;
+  margin: 0px 5px;
+	padding: 0px;
+  list-style-type: none;
 }
+
 #nav li a {
- color: #F00;
-text-decoration: none;
+	color: #e00;
+	display: block;
+	padding: 3px 8px;
+	font-weight: 900;
+	text-decoration: none;
+	background: #ccc;
+	border: 1px solid #bbb;
 }
+
 #nav li a:hover {
-  text-decoration: underline;
+  color: #f00;
+	background: #d9d9d9;
+	border-color: #c8c8c8;
 }
-br.clearLeft {
-   clear: left;
-}
-
-
-
-
-
-
 
 header h1 {
   font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif; font-weight: 900;
@@ -271,7 +261,6 @@ hr {
   height: 1px;
   line-height: 1px;
   margin-top: 1em;
-  padding-bottom: 1em;
   border: none;
   background: transparent url('../images/hr.png') 50% 0 no-repeat;
 }

@@ -8,8 +8,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="javascripts/main.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -19,11 +17,10 @@
   <body>
     <div id="container">
       <div class="inner">
-        <a name="1"></a>
+        <a name="home"></a>
         <header>
           <h1>Voronyj Diagram in Roassal</h1>
           <h3>The best implementation ever</h3>
-
         </header>
 
         <section id="downloads" class="clearfix">
@@ -31,6 +28,7 @@
           <a href="http://smalltalkhub.com/#!/~NataliaTymchuk/RTVoronyjDiagram" id="download-tar-gz" class="button"><span>SmalltalkHub</span></a>
           <a href="https://github.com/runadrag/RTVoronyjDiagram/issues" id="view-on-github" class="button"><span>Issue tracker</span></a>
         </section>
+        <img src="images/splash.png" alt="Voronyj diagram">
         <hr>
 
 
@@ -38,14 +36,12 @@
   <div id="navWrap">
     <div id="nav">
         <ul>
-            <li><a href="#Home" class="smoothScroll">Home</a></li>
-
-            <li><a href="#Usage" class="smoothScroll">Usage</a></li>
-            <li><a href="#Customisation" class="smoothScroll">Customisation</a></li>
-
-            <li><a href="#4" class="smoothScroll">Work with Framework</a></li>
+            <li><a href="#home" class="smoothScroll">Home</a></li>
+            <li><a href="#usage" class="smoothScroll">Usage</a></li>
+            <li><a href="#customization" class="smoothScroll">Customization</a></li>
+            <li><a href="#integration" class="smoothScroll">Integration</a></li>
+            <li><a href="#futureWork" class="smoothScroll">Future Work</a></li>
         </ul>
-        <br class="clearLeft" />
     </div></div>
 
 
@@ -57,14 +53,14 @@
 <!-- <a name="1"></a> -->
 <p><h2>Quick introduction</h2></p>
 
-<p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> have been used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with Voronyj diagrams.</p>
+<p><a target="_blank" href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> have been used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a target="_blank" href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with Voronyj diagrams.</p>
 
 
 <h2>How to Download</h2>
 <p>To download this just choose one method from the next options:</p>
 
 <ol>
-<li>download the image from the link above <a href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>
+<li>download the image from the link above <a target="_blank"  href="https://ci.inria.fr/pharo-contribution/job/RTVoronyjDiagram/PHARO=30,VERSION=development,VM=vm/">CI server</a>
 </li>
 <li>
 <p>run this code in Pharo 3 image</p>
@@ -87,7 +83,7 @@
 </li>
 </ol>
 
-<p><a name="2"></a></p>
+<a name="usage"></a>
 <h2>How to Use</h2>
 
 <p>A simple diagram needs the objects and block, which gives the position of the objects. For example you can do:</p>
@@ -102,7 +98,7 @@ builder open.
 <p>You will get this image
 <img src="pub-images/SimpleVD.png" alt="Simple Voronyj diagram"></p>
 
-<p><a name="3"></a></p>
+<a name="customization"></a>
 <h2>Customizing Diagram</h2>
 <p>When we are looking on the previous image the question the question can turned up whether you can make the diagram more informative and interesting? Actually - yes. This builder provides a lot of properties to customize the diagram.</p>
 
@@ -184,8 +180,8 @@ builder view
 <img src="pub-images/NiceVD.png" alt="Nice Voronyj diagram with properties above">
 
 
-<p><a name="4"></a></p>
-<h2>Work with Frameworks</h2>
+<a name="integration"></a>
+<h2>Intergation with Other Builders</h2>
 
 <p>You can use it for building the diagram with some point, as previous or you can use it with the other project.</p>
 
@@ -224,19 +220,22 @@ view</code></pre>
 <p>It looks </p>
 <img src="pub-images/VDMap.png" alt="Voronyj diagram on map">
 
-<h3>Future work</h3>
+<a name="futureWork"></a>
+<h2>Future Work</h2>
 <p> I'm researching if it possible to analyze the software using Voronyj diagram. Like a lot of other things software artifacts don't have physical coordinates, however until now I already get such prototype: </p>
 <img src="pub-images/ManyPoints.png" alt="Voronyj diagram with many entities">
 
         </section>
 
         <footer>
-          Voronyj diagram in Roassal is maintained by <a href="https://github.com/runadrag">runadrag</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+          Voronyj diagram in Roassal is maintained by <a href="http://natalia.tymchuk.me">Natalia Tymchuk</a><br>
+          This page is based on Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
 
       </div>
     </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="javascripts/main.js"></script>
   </body>
 </html>
