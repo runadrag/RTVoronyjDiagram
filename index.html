@@ -38,10 +38,10 @@
   <div id="navWrap">
     <div id="nav">
         <ul>
-            <li><a href="#1" class="smoothScroll">Quick Intro</a></li>
+            <li><a href="#Home" class="smoothScroll">Home</a></li>
 
-            <li><a href="#2" class="smoothScroll">How to Use</a></li>
-            <li><a href="#3" class="smoothScroll">Customising Diagram</a></li>
+            <li><a href="#Usage" class="smoothScroll">Usage</a></li>
+            <li><a href="#Customisation" class="smoothScroll">Customisation</a></li>
 
             <li><a href="#4" class="smoothScroll">Work with Framework</a></li>
         </ul>
@@ -55,7 +55,7 @@
         <section id="main_content">
 
 <!-- <a name="1"></a> -->
-<h2>Quick introduction</h2>
+<p><h2>Quick introduction</h2></p>
 
 <p><a href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronyj (Voronoi) diagrams</a> are being used for more than 300 years in epidemiology, architecture, mining and machine learning. Now we not only provide the support for it in <a href="http://objectprofile.com/ObjectProfile.html">Roassal 2</a>, but also suggest an approach to visualize a software with Voronyj diagrams.</p>
 
@@ -122,6 +122,8 @@ builder color: cn.</code></pre>
 
 <h4>Frame</h4>
   <p>The builder uses the frame, which is bounding cells. You can set the frame. For example </p>
+  <pre><code>frameBlock: [ 0 @ 0 corner: 500 @ 500 ]</code></pre>
+  <p>or</p>
   <pre><code>frameBlock: [view elements encompassingRectangle expandBy: 10 ]</code></pre>
   <p>Don't worry if it happens than your frame does not contain all points or object, it will be merged with   <code>minFrame</code>.</p>
 
@@ -225,9 +227,10 @@ view</code></pre>
 <h3>Diagram ????</h3>
 <p>Very often our objects didn't have coordinates. Like an experiment I'm working on visualisation the classes.  </p>
 <p>You can build the diagram to visualize a software. Just add the package to the <code>Moose Panel</code> and see what you will get. </p>
-<p> Some times you can get less point then you have classes. It's deppens on if class uses methods from other class - if uses then this classes should be close. In this case if you press on some point you get new image. </p>
-<p>I will glad if you can try it and write some comments.</p>
-        </section>
+<img src="pub-images/ManyEntities.png" alt="Voronyj diagram with many entities">
+<p> Some times you can get less point then you have classes. It's deppens on if class uses methods from other class - if uses then this classes should be closer. In this case if you press on some point you get new image. </p>
+<img src="pub-images/60Entities.png" alt="Voronyj diagram 3 entities">
+<p>I will glad if you can try it and write some comments.</p>        </section>
 
         <footer>
           Voronyj diagram in Roassal is maintained by <a href="https://github.com/runadrag">runadrag</a><br>
