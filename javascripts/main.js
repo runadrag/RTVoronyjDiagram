@@ -4,7 +4,7 @@
 ************************************************************
 **/
 
-$(function() {
+jQuery(window).load(function() {
     // Stick the #nav to the top of the window
     var nav = $('#nav');
     var navHomeY = nav.offset().top;
