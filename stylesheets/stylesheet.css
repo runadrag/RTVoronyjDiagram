@@ -68,6 +68,66 @@ header {
   padding-bottom: 25px;
 }
 
+
+
+
+
+
+
+
+#navWrap {
+    height: 30px;
+}
+#nav {
+	padding: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#nav.fixed {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background: rgba(231, 231, 231, 0.95);
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(50, 50, 50, 0.15);
+	-moz-box-shadow:    0px 3px 6px 0px rgba(50, 50, 50, 0.15);
+	box-shadow:         0px 3px 6px 0px rgba(50, 50, 50, 0.15);
+}
+
+#nav ul {
+   margin: 0;
+padding: 0;
+}
+#nav li {
+    float: left;
+    padding: 3px 8px;
+    background-color: #FFF;
+    margin: 0 10px 0 0;
+    color: #F00;
+    list-style-type: none;
+}
+#nav li a {
+ color: #F00;
+text-decoration: none;
+}
+#nav li a:hover {
+  text-decoration: underline;
+}
+br.clearLeft {
+   clear: left;
+}
+
+
+
+
+
+
+
 header h1 {
   font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif; font-weight: 900;
   letter-spacing: -1px;

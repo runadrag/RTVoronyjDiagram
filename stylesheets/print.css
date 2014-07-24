@@ -58,6 +58,53 @@ header {
   padding-bottom: 10px;
 }
 
+
+
+
+
+
+
+
+#navWrap {
+    height: 30px;
+}
+#nav {
+padding: 5px;
+background: #999;
+}
+#nav ul {
+   margin: 0;
+padding: 0;
+}
+#nav li {
+    float: left;
+    padding: 3px 8px;
+    background-color: #FFF;
+    margin: 0 10px 0 0;
+    color: #F00;
+    list-style-type: none;
+}
+#nav li a {
+ color: #F00;
+text-decoration: none;
+}
+#nav li a:hover {
+  text-decoration: underline;
+}
+br.clearLeft {
+   clear: left;
+}
+
+
+
+
+
+
+
+
+
+
+
 header h1 {
   font-weight: bold;
   letter-spacing: -1px;
