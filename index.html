@@ -131,24 +131,24 @@ builder color: cn.</code></pre>
   It uses <code>ShapeBuilder</code>, that's why you can use all the features of the ShapeBuilder. So you can add:</p>
 <h4>Color</h4>
       <pre><code>builder sites shape
-      color: Color yellow.</code></pre>
+  color: Color yellow.</code></pre>
 
 <h4>Shape</h4>
       <pre><code>builder sites shape rectangle.</code></pre>
 
 <h4>Size</h4>
       <pre><code>builder sites shape
-      size: 30.</code></pre>
+  size: 30.</code></pre>
 
 <h4>Interaction</h4>
       <ol>
         <li>Popup text:
           <pre><code>builder sites interaction
-      popupText: [ :obj | 'I am', obj asString ].</code></pre>
+  popupText: [ :obj | 'I am', obj asString ].</code></pre>
         </li>
         <li>Highlight color
           <pre><code>builder sites interaction
-      highlightColored: Color red.</code></pre>
+  highlightColored: Color red.</code></pre>
         </li>
       </ol>
       </li>
@@ -159,21 +159,21 @@ objects := { 10 @ 40 . 40 @ 10 . 10 @ -20 . -20 @ 10.
             -20 @ 60 . -30 @ 40 . 160 @ 90 . 100 @ -30 }.
 
 cn := RTNColorLinearNormalizer
- inContext: objects
- withCommand: #x
- lowColor: (Color r:0 g:0 b:1)
- highColor: (Color r:1 g:1 b:0).
+  inContext: objects
+  withCommand: #x
+  lowColor: (Color r:0 g:0 b:1)
+  highColor: (Color r:1 g:1 b:0).
 
 builder := RTVoronyjBuilder new .
 builder objects: objects.
 builder positionBlock: #yourself.
 builder color: cn.
 builder sites shape rectangle;
-      color: Color green;
-      size: 10.
+  color: Color green;
+  size: 10.
 builder sites interaction
-      popupText: [ :obj | 'I am', obj asString ];
-      highlightColored: Color red.
+  popupText: [ :obj | 'I am', obj asString ];
+  highlightColored: Color red.
 builder build.
 builder view
  @ RTZoomableView;
@@ -209,12 +209,12 @@ view := RTView new.
 builder renderIn: view.
 
 RTVoronyjBuilder new
-	objects: (view elements select:[:e
+  objects: (view elements select:[:e
                     | e shape class = RTEllipse ]);
-	positionBlock: #position;
-	doNotRenderSites;
-	color: (Color black alpha: 0.05);
-	renderIn: view.
+  positionBlock: #position;
+  doNotRenderSites;
+  color: (Color black alpha: 0.05);
+  renderIn: view.
 view</code></pre>
 <p>It looks </p>
 <img src="pub-images/VDMap.png" alt="Voronyj diagram on map">
