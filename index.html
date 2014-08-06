@@ -194,17 +194,14 @@ You just need to add a few lines of code:</p>
 <pre><code>| builder view |
 builder := RTMapBuilder new.
 builder countries: RTMapBuilder southAmerica.
-builder cities: #('Santiago''Bogota''Buenos Aires'
-                  'Brasilia''Montevideo''Lima''La Paz'
-                  'Quito''Sao Paulo''Caracas').
+builder cities: #('Santiago' 'Bogota' 'Buenos Aires'
+                  'Brasilia' 'Montevideo' 'Lima' 'La Paz'
+                  'Quito' 'Sao Paulo' 'Caracas').
 
-builder color: Color veryVeryLightGray.
-	builder scale: 3.
+builder
+  color: Color veryVeryLightGray;
+	builder scale: 3;
 	builder withPopup.
-	named: [ :c | c at: 1 ].
-
-builder color: Color veryVeryLightGray.
-builder scale: 3.
 
 "next code is used to add Voronyj Diagram"
 
