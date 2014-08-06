@@ -219,6 +219,45 @@ view</code></pre>
 <p>It looks </p>
 <img src="pub-images/VDMap.png" alt="Voronyj diagram on map">
 
+<h3>Diagram on Google Map</h3>
+<p>Let's take a look on GMap by Sergio Maass. This project is steel being developed, but you can get a lot of interesting information. For example you can find which metro station is the closest to you.</p>
+<pre><code>| v map stations metroName builder |
+
+metroName := [ :s | 'Metro ', s, ', Santiago Chile' ].
+
+stations := #( 'Baquedano' 'Universidad Catolica' 'Santa Lucia'
+	 'Universidad de Chile' 'La Moneda' 'Los Heroes' 'Republica'
+	 'Union Latino Americana' 'Patronato' 'Puente Cal y Canto'
+	 'Santa Ana' 'Los Heroes' 'Toesca' 'Parque O Higgins')
+  collect: [ :s | GoogleMaps geocode: (metroName value: s) ].
+
+v := RTView new.
+map := (GoogleMaps mapForCoordinates: stations fifth coordinates)
+  satellite;
+	zoom: 14;
+	size: 600@600;
+	getMap.
+v add: map.
+
+builder := RTVoronyjBuilder new
+  objects: stations;
+  positionBlock: [ :model |
+    map positionOfGeoPoint: model location ];
+  color: Color transparent;
+  frameBlock: [ map encompassingRectangle ]
+  yourself.
+
+builder sites shape
+  color: Color red;
+	size: 20.
+builder sites interaction popupText: [ :model |
+	model addressComponents first ].
+
+builder renderIn: v.
+v
+</code></pre>
+<img src="pub-images/VDGMap.png" alt="Voronyj diagram on map">
+
 <a name="futureWork"></a>
 <h2>Future Work</h2>
 <p> I'm researching if it possible to analyze the software using Voronyj diagram. Like a lot of other things software artifacts don't have physical coordinates, however until now I already get such prototype: </p>
